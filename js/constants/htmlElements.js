@@ -1,0 +1,5 @@
+export const DIV = "div"
+export const IMG = "img"
+export const P = "p"
+export const A = "a"
+export const H5 = "h5"
