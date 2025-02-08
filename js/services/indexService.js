@@ -1,7 +1,7 @@
-import * as carRepository from '../repositories/carRepository';
-import * as htmlCard from '../utils/generateHtmlCard';
-import * as htmlColumn from '../utils/generateHtmlColumn';
-import * as testData from '../utils/testDataUtil'
+import * as carRepository from '../repositories/carRepository.js';
+import * as htmlCard from '../utils/generateHtmlCard.js';
+import * as htmlColumn from '../utils/generateHtmlColumn.js';
+import * as testData from '../utils/testDataUtil.js'
 
 export function loadTestDataImpl()
 {
@@ -19,10 +19,10 @@ export function loadAllAvailableCarHtml()
     let carList = carRepository.getAllCars();
     let row = htmlColumn.getRow();
 
-    for(car in carList)
+    for(let i = 0; i< carList.length; i++)
     {
         let column = htmlColumn.getColumn();
-        column.appendChild(htmlCard.getCard(car));
+        column.appendChild(htmlCard.getCard(carList[i]));
 
         row.appendChild(column);
     }

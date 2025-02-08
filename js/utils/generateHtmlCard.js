@@ -1,4 +1,4 @@
-import * as htmlElement from '../constants/htmlElements';
+import * as htmlElement from '../constants/htmlElements.js';
 
 const logoSourcePrefix = "./images/";
 const logoSourceSuffix = "-logo.png";
@@ -9,7 +9,18 @@ export function getCard(car) {
     parentDiv.style.width = "18rem";
     parentDiv.style.padding = "1%";
 
-    // ...
+    let image = getBrandImageElement(car);
+    let cardBody = getCardBody(car);
+    let cardTitle = getCardTitle(car);
+    let cardText = getCardText(car);
+    let cardButton = getCardButton(car);
+
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardText);
+    cardBody.appendChild(cardButton);
+
+    parentDiv.appendChild(image);
+    parentDiv.appendChild(cardBody);
 
     return parentDiv;
 }
@@ -18,6 +29,7 @@ function getBrandImageElement(car) {
     let image = document.createElement(htmlElement.IMG);
     image.src = logoSourcePrefix + car.brand.toLowerCase() + logoSourceSuffix;
     image.classList.add("card-img-top");
+    image.height = 200;
 
     return image;
 }
@@ -25,6 +37,8 @@ function getBrandImageElement(car) {
 function getCardBody(car) {
     let parentDiv = document.createElement(htmlElement.DIV);
     parentDiv.classList.add("card-body");
+
+    return parentDiv;
 }
 
 function getCardTitle(car) {
@@ -39,4 +53,12 @@ function getCardText(car) {
     description.classList.add("card-text");
     description.innerText = car.year + " " + car.model;
     return description;
+}
+
+function getCardButton(car) {
+    let button = document.createElement(htmlElement.A);
+    button.classList.add("btn");
+    button.classList.add("btn-primary");
+    button.innerText = "Ver más"
+    return button;
 }

@@ -1,4 +1,4 @@
-import * as htmlElement from '../constants/htmlElements';
+import * as htmlElement from '../constants/htmlElements.js';
 
 export function getRow() {
     let parentDiv = document.createElement(htmlElement.DIV);

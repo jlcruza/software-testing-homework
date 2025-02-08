@@ -1,5 +1,5 @@
-import * as car from '../dto/Car';
-import * as idGenerator from './carIdUtil';
+import * as car from '../dto/Car.js';
+import * as idGenerator from './carIdUtil.js';
 
 export function getTestData() {
     return [

@@ -1,4 +1,4 @@
-import * as indexService from '../services/indexService';
+import * as indexService from '../services/indexService.js';
 
 function clearSearchBar(searchBarId) {
     let searchBar = document.getElementById(searchBarId);

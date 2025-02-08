@@ -1,4 +1,4 @@
-import * as localdb from '../database/localdb';
+import * as localdb from '../database/localdb.js';
 
 /** 
 Returns cars saved in sessionStorage
