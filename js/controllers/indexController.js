@@ -1,4 +1,5 @@
 import * as indexService from '../services/indexService.js';
+import * as indexInteractives from '../interactives/indexInteractions.js'
 
 function clearSearchBar(searchBarId) {
     let searchBar = document.getElementById(searchBarId);
@@ -17,9 +18,15 @@ function clearYear() {
     clearSearchBar("year-searchbar");
 }
 
+function attachEventListeners()
+{
+    indexInteractives.brandClearBtn.addEventListener('click', clearBrand);
+    indexInteractives.modelClearBtn.addEventListener('click', clearModel);
+    indexInteractives.yearClearBtn.addEventListener('click', clearYear);
+}
+
 function loadTestData() {
     indexService.loadTestDataImpl();
-    loadAvailableCars();
 }
 
 /** 
@@ -32,4 +39,11 @@ function loadAvailableCars() {
 
 }
 
-window.onload = loadTestData;
+function initialize()
+{
+    loadTestData();
+    loadAvailableCars();
+    attachEventListeners();
+}
+
+window.onload = initialize;
