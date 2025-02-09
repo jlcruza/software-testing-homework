@@ -3,9 +3,11 @@ import * as htmlElement from '../constants/htmlElements.js';
 const logoSourcePrefix = "./images/";
 const logoSourceSuffix = "-logo.png";
 
-export function getCard(car) {
+export function getCard(car, showPopupCard) {
     let parentDiv = document.createElement(htmlElement.DIV);
     parentDiv.classList.add("card");
+    parentDiv.classList.add("shadow");
+    parentDiv.classList.add("m-3");
     parentDiv.style.width = "18rem";
     parentDiv.style.padding = "1%";
 
@@ -13,7 +15,7 @@ export function getCard(car) {
     let cardBody = getCardBody(car);
     let cardTitle = getCardTitle(car);
     let cardText = getCardText(car);
-    let cardButton = getCardButton(car);
+    let cardButton = getCardButton(car, showPopupCard);
 
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
@@ -55,10 +57,15 @@ function getCardText(car) {
     return description;
 }
 
-function getCardButton(car) {
-    let button = document.createElement(htmlElement.A);
+function getCardButton(car, showPopupCard) {
+    let button = document.createElement(htmlElement.BUTTON);
     button.classList.add("btn");
     button.classList.add("btn-primary");
     button.innerText = "Ver más"
+
+    button.addEventListener('click', function (){
+        showPopupCard(car);
+    });
+    
     return button;
 }

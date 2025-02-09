@@ -1,4 +1,5 @@
 import * as localdb from '../database/localdb.js';
+import * as car from '../dto/Car.js'
 
 /** 
 Returns cars saved in sessionStorage
@@ -6,6 +7,22 @@ Returns cars saved in sessionStorage
 */
 export function getAllCars() {
     return localdb.getSavedCars();
+}
+
+/** 
+Retrives the car that has the specified id. 
+@returns car with id, if found. 
+*/
+export function getCarById(carId) {
+    let allCars = localdb.getSavedCars();
+
+    for (let i = 0; i < allCars.length; i++) {
+        if (allCars[i].id == carId) {
+            return allCars[i];
+        }
+    }
+
+    return new car.Car("", "", "", "", "");
 }
 
 /** 
@@ -26,6 +43,12 @@ export function addCar(newCar) {
 
     for (car in allCars) {
         if (newCar.id == car.id) {
+            doCarExists = true;
+        }
+    }
+
+    for (let i = 0; i < allCars.length; i++) {
+        if (newCar.id == allCars[i].id) {
             doCarExists = true;
         }
     }
