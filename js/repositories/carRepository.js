@@ -41,12 +41,6 @@ export function addCar(newCar) {
     let allCars = getAllCars();
     let doCarExists = false;
 
-    for (car in allCars) {
-        if (newCar.id == car.id) {
-            doCarExists = true;
-        }
-    }
-
     for (let i = 0; i < allCars.length; i++) {
         if (newCar.id == allCars[i].id) {
             doCarExists = true;
@@ -56,7 +50,6 @@ export function addCar(newCar) {
     if (doCarExists)
         return;
 
-    allCars.push(car);
-
+    allCars.push(newCar);
     localdb.saveCars(allCars);
 }

@@ -11,19 +11,19 @@ export function getTestData() {
 }
 
 function getHyundai() {
-    return new car.Car(getId(), "Hyundai", "Kona", 2023, 20000);
+    return new car.Car(getId(), "Hyundai", "Kona", 2023, "$20,000");
 }
 
 function getToyota() {
-    return new car.Car(getId(), "Toyota", "Corolla", 2022, 25000);
+    return new car.Car(getId(), "Toyota", "Corolla", 2022, "$25,000");
 }
 
 function getAudi() {
-    return new car.Car(getId(), "Audi", "TT", 2025, 40000);
+    return new car.Car(getId(), "Audi", "TT", 2025, "$40,000");
 }
 
 function getMazda() {
-    return new car.Car(getId(), "Mazda", "CX-5", 2021, 38000);
+    return new car.Car(getId(), "Mazda", "CX-5", 2021, "$38,000");
 }
 
 function getId() {

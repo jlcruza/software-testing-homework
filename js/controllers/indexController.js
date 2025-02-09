@@ -1,24 +1,23 @@
 import * as indexService from '../services/indexService.js';
 import * as indexInteractives from '../interactives/indexInteractions.js'
+import * as historyUtil from '../utils/historyUtil.js'
 
 function clearSearchBar(searchBarId) {
     let searchBar = document.getElementById(searchBarId);
     searchBar.value = "";
+    searchForCars();
 }
 
 function clearBrand() {
     clearSearchBar("brand-searchbar");
-    searchForCars();
 }
 
 function clearModel() {
     clearSearchBar("model-searchbar");
-    searchForCars();
 }
 
 function clearYear() {
     clearSearchBar("year-searchbar");
-    searchForCars();
 }
 
 function populateCards(carListHtml)
@@ -90,3 +89,7 @@ function initialize()
 }
 
 window.onload = initialize;
+
+window.addEventListener("pageshow", (event) => {
+    loadAvailableCars();
+  });
