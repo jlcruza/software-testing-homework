@@ -46,6 +46,7 @@ function getCardBody(car) {
 function getCardTitle(car) {
     let title = document.createElement(htmlElement.H5);
     title.classList.add("card-title");
+    title.classList.add("result-card-title");
     title.innerText = car.brand;
     return title;
 }
@@ -53,6 +54,7 @@ function getCardTitle(car) {
 function getCardText(car) {
     let description = document.createElement(htmlElement.P);
     description.classList.add("card-text");
+    description.classList.add("result-card-text");
     description.innerText = car.year + " " + car.model;
     return description;
 }
@@ -61,6 +63,7 @@ function getCardButton(car, showPopupCard) {
     let button = document.createElement(htmlElement.BUTTON);
     button.classList.add("btn");
     button.classList.add("btn-primary");
+    button.classList.add("result-card-button");
     button.innerText = "Ver más"
 
     button.addEventListener('click', function (){
