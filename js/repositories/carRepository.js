@@ -22,7 +22,39 @@ export function getCarById(carId) {
         }
     }
 
-    return new car.Car("", "", "", "", "");
+    return null;
+}
+
+/** 
+Overwrites car instance with matching id.
+@param updateCar car to be saved if matching id is found. 
+*/
+export function updateCar(updateCar) {
+    let allCars = localdb.getSavedCars();
+
+    for (let i = 0; i < allCars.length; i++) {
+        if (allCars[i].id == updateCar.id) {
+            allCars[i] = updateCar;
+        }
+    }
+
+    overWriteCarList(allCars);
+}
+
+/** 
+Delete car instance with matching id.
+@param carToDelete car to be deleted if matching id is found. 
+*/
+export function deleteCar(carToDelete) {
+    let allCars = localdb.getSavedCars();
+    let remainingCars = []
+
+    for (let i = 0; i < allCars.length; i++) {
+        if (allCars[i].id != carToDelete.id) {
+            remainingCars.push(allCars[i])
+        }
+    }
+    overWriteCarList(remainingCars);
 }
 
 /** 

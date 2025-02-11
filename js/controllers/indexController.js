@@ -1,5 +1,6 @@
 import * as indexService from '../services/indexService.js';
 import * as indexInteractives from '../interactives/indexInteractions.js'
+import * as car from '../dto/Car.js'
 import * as historyUtil from '../utils/historyUtil.js'
 
 function clearSearchBar(searchBarId) {
@@ -33,8 +34,10 @@ function goToAddCarPage()
 
 function showPopupCard(car)
 {
-    indexInteractives.popupCardHeader.innerText = car.brand;
-    indexInteractives.popupCardText.innerText = car.year + " " + car.model;
+    indexInteractives.popupCardHiddenId.innerText = car.id;
+    indexInteractives.popupCardHeader.value = car.brand;
+    indexInteractives.popupCardText.value =  car.model;
+    indexInteractives.popupCardYear.value = car.year;
     indexInteractives.popupCard.classList.remove("hide")
 }
 
@@ -47,6 +50,35 @@ function searchForCars()
     let allCars = indexService.loadSearchedCars(brand, model, year, showPopupCard);
 
     populateCards(allCars);
+}
+
+function popupAlterAction(shouldUpdate, shouldDelete)
+{
+    let id = indexInteractives.popupCardHiddenId.innerText;
+    let brand = indexInteractives.popupCardHeader.value;
+    let model = indexInteractives.popupCardText.value;
+    let year = indexInteractives.popupCardYear.value;
+
+    if(shouldUpdate)
+    {
+        indexService.updateCarImpl(new car.Car(id, brand, model, year, ""));
+    }
+    else if (shouldDelete){
+        indexService.deleteCarImpl(new car.Car(id, brand, model, year, ""));
+    }
+
+    loadAvailableCars();
+    hidePopupCard();
+}
+
+function updateCar()
+{
+    popupAlterAction(true, false);
+}
+
+function deleteCar()
+{
+    popupAlterAction(false, true);
 }
 
 function hidePopupCard()
@@ -65,6 +97,8 @@ function attachEventListeners()
     indexInteractives.modelSearchBtn.addEventListener('click', searchForCars);
     indexInteractives.yearSearchBtn.addEventListener('click', searchForCars);
 
+    indexInteractives.popupCardUpdateBtn.addEventListener('click', updateCar)
+    indexInteractives.popupCardDeleteBtn.addEventListener('click', deleteCar)
     indexInteractives.popupCardCloseBtn.addEventListener('click', hidePopupCard)
 }
 

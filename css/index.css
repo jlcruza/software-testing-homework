@@ -6,6 +6,7 @@
     bottom: 0 !important;
     right: 0 !important;
     left: 0 !important;
-    height: 30% !important;
+    height: 50% !important;
     width: 70% !important;
+    z-index: 10000 !important;
 }

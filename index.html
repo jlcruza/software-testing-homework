@@ -17,12 +17,14 @@
   </head>
   <body>
 
-    <img src="./images/icon.png" width="125" height="100" style="display: inline;"/>
+    <img src="./images/icon.png" width="125" height="100"
+      style="display: inline;" />
     <h1 class="h1">Car Dealer</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <button id="add-car-btn" type="button" class="btn btn-primary">Agregar Auto</button>
+          <button id="add-car-btn" type="button" class="btn btn-primary">Agregar
+            Auto</button>
         </a>
       </div>
     </nav>
@@ -33,9 +35,9 @@
         <div class="input-group">
           <input id="brand-searchbar" type="text" class="form-control"
             placeholder="Escribe Marca a buscar">
-          <button id="brand-search-btn"  class="btn btn-outline-secondary"
+          <button id="brand-search-btn" class="btn btn-outline-secondary"
             type="button">Buscar</button>
-          <button id="brand-clear-btn"  class="btn btn-outline-danger"
+          <button id="brand-clear-btn" class="btn btn-outline-danger"
             type="button">Limpiar</button>
         </div>
       </div>
@@ -69,13 +71,54 @@
     <div id="main-content" style="padding: 2%;"></div>
 
     <div id="popup-card" class="card shadow-lg popup-card-style hide">
-      <h1 id="popup-card-title" class="card-header bg-success text-white">Selección</h1>
+      <h1 id="popup-card-title"
+        class="card-header bg-success text-white">Selección</h1>
       <div class="card-body">
-        <h5 id="popup-card-header" class="card-title"></h5>
-        <p id="popup-card-text" class="card-text"></p>
-        <button id="popup-card-close-btn" class="btn btn-primary btn-lg">Actualizar</button>
-        <button id="popup-card-close-btn2" class="btn btn-danger btn-lg">Borrar</button>
-        <button id="popup-card-close-btn3" class="btn btn-secondary btn-lg">Cerrar</button>
+        <div class="row">
+          <div class="col-md-3">
+            <label for="popup-card-header" class="form-label">Marca</label>
+            <select class="form-select" id="popup-card-header" required>
+              <option selected disabled value>Escoja...</option>
+              <option>Audi</option>
+              <option>Chevrolet</option>
+              <option>Hyundai</option>
+              <option>Jeep</option>
+              <option>Kia</option>
+              <option>Mazda</option>
+              <option>Mitsubishi</option>
+              <option>Toyota</option>
+            </select>
+            <div class="invalid-feedback">
+              Seleccione una marca
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="popup-card-text" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="popup-card-text" required>
+            <div class="valid-feedback">
+              Bien
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="popup-card-year" class="form-label">Año</label>
+            <input type="number" class="form-control" id="popup-card-year" required
+              value="2025">
+            <div class="invalid-feedback">
+              Entre el año del vehiculo
+            </div>
+          </div>
+          <div class="col-12">
+            <h1 id="popup-card-hidden-id" style="color: transparent;"></h1>
+          </div>
+          <div class="col-12">
+            <button id="popup-card-update-btn"
+              class="btn btn-primary btn-lg">Actualizar</button>
+              <button id="popup-card-delete-btn"
+            class="btn btn-danger btn-lg">Borrar</button>
+            <button id="popup-card-close-btn"
+          class="btn btn-secondary btn-lg">Cerrar</button>
+          </div>
+        </div>
       </div>
     </div>
 

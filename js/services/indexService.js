@@ -12,6 +12,15 @@ export function saveCarsImpl(cars) {
     carRepository.overWriteCarList(cars);
 }
 
+export function updateCarImpl(car){
+    carRepository.updateCar(car);
+}
+
+export function deleteCarImpl(car)
+{
+    carRepository.deleteCar(car)
+}
+
 function carToCards(carList, showPopupCard) {
     let row = htmlColumn.getRow();
 
