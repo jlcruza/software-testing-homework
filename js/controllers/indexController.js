@@ -21,28 +21,24 @@ function clearYear() {
     clearSearchBar("year-searchbar");
 }
 
-function populateCards(carListHtml)
-{
+function populateCards(carListHtml) {
     let mainContent = document.getElementById("main-content");
     mainContent.replaceChildren(carListHtml);
 }
 
-function goToAddCarPage()
-{
-    window.location.href="./pages/addCar.html";
+function goToAddCarPage() {
+    window.location.href = "./pages/addCar.html";
 }
 
-function showPopupCard(car)
-{
+function showPopupCard(car) {
     indexInteractives.popupCardHiddenId.innerText = car.id;
     indexInteractives.popupCardHeader.value = car.brand;
-    indexInteractives.popupCardText.value =  car.model;
+    indexInteractives.popupCardText.value = car.model;
     indexInteractives.popupCardYear.value = car.year;
     indexInteractives.popupCard.classList.remove("hide")
 }
 
-function searchForCars()
-{
+function searchForCars() {
     let brand = indexInteractives.brandSearchBar.value;
     let model = indexInteractives.modelSearchBar.value;
     let year = indexInteractives.yearSearchBar.value;
@@ -52,18 +48,16 @@ function searchForCars()
     populateCards(allCars);
 }
 
-function popupAlterAction(shouldUpdate, shouldDelete)
-{
+function popupAlterAction(shouldUpdate, shouldDelete) {
     let id = indexInteractives.popupCardHiddenId.innerText;
     let brand = indexInteractives.popupCardHeader.value;
     let model = indexInteractives.popupCardText.value;
     let year = indexInteractives.popupCardYear.value;
 
-    if(shouldUpdate)
-    {
+    if (shouldUpdate) {
         indexService.updateCarImpl(new car.Car(id, brand, model, year, ""));
     }
-    else if (shouldDelete){
+    else if (shouldDelete) {
         indexService.deleteCarImpl(new car.Car(id, brand, model, year, ""));
     }
 
@@ -71,23 +65,19 @@ function popupAlterAction(shouldUpdate, shouldDelete)
     hidePopupCard();
 }
 
-function updateCar()
-{
+function updateCar() {
     popupAlterAction(true, false);
 }
 
-function deleteCar()
-{
+function deleteCar() {
     popupAlterAction(false, true);
 }
 
-function hidePopupCard()
-{
+function hidePopupCard() {
     indexInteractives.popupCard.classList.add("hide")
 }
 
-function attachEventListeners()
-{
+function attachEventListeners() {
     indexInteractives.addCarBtn.addEventListener('click', goToAddCarPage);
     indexInteractives.brandClearBtn.addEventListener('click', clearBrand);
     indexInteractives.modelClearBtn.addEventListener('click', clearModel);
@@ -115,8 +105,7 @@ function loadAvailableCars() {
     populateCards(allCars);
 }
 
-function initialize()
-{
+function initialize() {
     loadTestData();
     loadAvailableCars();
     attachEventListeners();
@@ -126,4 +115,4 @@ window.onload = initialize;
 
 window.addEventListener("pageshow", (event) => {
     loadAvailableCars();
-  });
+});
