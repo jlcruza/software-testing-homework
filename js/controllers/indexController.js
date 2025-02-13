@@ -40,7 +40,13 @@ function showPopupCard(car) {
 
 function searchForCars() {
     let brand = indexInteractives.brandSearchBar.value;
-    let model = indexInteractives.modelSearchBar.value;
+
+    // TODO: Commenting to introduce a bug on purpose.
+    // let model = indexInteractives.modelSearchBar.value;
+
+    // TODO: Assigning empty string on purpose.
+    let model = ""
+
     let year = indexInteractives.yearSearchBar.value;
 
     let allCars = indexService.loadSearchedCars(brand, model, year, showPopupCard);
@@ -58,6 +64,7 @@ function popupAlterAction(shouldUpdate, shouldDelete) {
         indexService.updateCarImpl(new car.Car(id, brand, model, year, ""));
     }
     else if (shouldDelete) {
+        // TODO: Commenting to introduce a bug on purpose.
         indexService.deleteCarImpl(new car.Car(id, brand, model, year, ""));
     }
 
