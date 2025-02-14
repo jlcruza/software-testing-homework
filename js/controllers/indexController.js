@@ -65,7 +65,7 @@ function popupAlterAction(shouldUpdate, shouldDelete) {
     }
     else if (shouldDelete) {
         // TODO: Commenting to introduce a bug on purpose.
-        indexService.deleteCarImpl(new car.Car(id, brand, model, year, ""));
+        // indexService.deleteCarImpl(new car.Car(id, brand, model, year, ""));
     }
 
     loadAvailableCars();
