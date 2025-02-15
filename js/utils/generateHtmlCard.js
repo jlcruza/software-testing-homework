@@ -64,7 +64,7 @@ function getCardButton(car, showPopupCard) {
     button.classList.add("btn");
     button.classList.add("btn-primary");
     button.classList.add("result-card-button");
-    button.innerText = "Ver más"
+    button.innerText = "Learn more"
 
     button.addEventListener('click', function (){
         showPopupCard(car);

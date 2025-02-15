@@ -23,8 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <button id="add-car-btn" type="button" class="btn btn-primary">Agregar
-            Auto</button>
+          <button id="add-car-btn" type="button" class="btn btn-primary">Add Car</button>
         </a>
       </div>
     </nav>
@@ -34,51 +33,51 @@
         <!-- Brand Search Bar -->
         <div class="input-group">
           <input id="brand-searchbar" type="text" class="form-control"
-            placeholder="Escribe Marca a buscar">
+            placeholder="Type brand to search">
           <button id="brand-search-btn" class="btn btn-outline-secondary"
-            type="button">Buscar</button>
+            type="button">Search</button>
           <button id="brand-clear-btn" class="btn btn-outline-danger"
-            type="button">Limpiar</button>
+            type="button">Clear</button>
         </div>
       </div>
       <div class="col-4">
         <!-- Model Search Bar -->
         <div class="input-group">
           <input id="model-searchbar" type="text" class="form-control"
-            placeholder="Escribe Modelo a buscar">
+            placeholder="Type model to search">
           <button id="model-search-btn" class="btn btn-outline-secondary"
-            type="button">Buscar</button>
+            type="button">Search</button>
           <button id="model-clear-btn" class="btn btn-outline-danger"
-            type="button">Limpiar</button>
+            type="button">Clear</button>
         </div>
       </div>
       <div class="col-4">
         <!-- Year Search Bar -->
         <div class="input-group">
           <input id="year-searchbar" type="number" class="form-control"
-            placeholder="Escribe Año a buscar">
+            placeholder="Type year to search">
           <button id="year-search-btn" class="btn btn-outline-secondary"
-            type="button">Buscar</button>
+            type="button">Search</button>
           <button id="year-clear-btn" class="btn btn-outline-danger"
-            type="button">Limpiar</button>
+            type="button">Clear</button>
         </div>
       </div>
     </div>
 
-    <p class="h3">Autos encontrados</p>
+    <p class="h3">Car(s) found</p>
 
     <!-- Search Results in Cards -->
     <div id="main-content" style="padding: 2%;"></div>
 
     <div id="popup-card" class="card shadow-lg popup-card-style hide">
       <h1 id="popup-card-title"
-        class="card-header bg-success text-white">Selección</h1>
+        class="card-header bg-success text-white">Selection</h1>
       <div class="card-body">
         <div class="row">
           <div class="col-md-3">
-            <label for="popup-card-header" class="form-label">Marca</label>
+            <label for="popup-card-header" class="form-label">Brand</label>
             <select class="form-select" id="popup-card-header" required>
-              <option selected disabled value>Escoja...</option>
+              <option selected disabled value>Choose...</option>
               <option>Audi</option>
               <option>Chevrolet</option>
               <option>Hyundai</option>
@@ -89,22 +88,22 @@
               <option>Toyota</option>
             </select>
             <div class="invalid-feedback">
-              Seleccione una marca
+              Select brand
             </div>
           </div>
           <div class="col-md-4">
-            <label for="popup-card-text" class="form-label">Modelo</label>
+            <label for="popup-card-text" class="form-label">Model</label>
             <input type="text" class="form-control" id="popup-card-text" required>
             <div class="valid-feedback">
-              Bien
+              Right format
             </div>
           </div>
           <div class="col-md-3">
-            <label for="popup-card-year" class="form-label">Año</label>
+            <label for="popup-card-year" class="form-label">Year</label>
             <input type="number" class="form-control" id="popup-card-year" required
               value="2025">
             <div class="invalid-feedback">
-              Entre el año del vehiculo
+              Enter vehicle year
             </div>
           </div>
           <div class="col-12">
@@ -112,11 +111,11 @@
           </div>
           <div class="col-12">
             <button id="popup-card-update-btn"
-              class="btn btn-primary btn-lg">Actualizar</button>
+              class="btn btn-primary btn-lg">Update</button>
               <button id="popup-card-delete-btn"
-            class="btn btn-danger btn-lg">Borrar</button>
+            class="btn btn-danger btn-lg">Delete</button>
             <button id="popup-card-close-btn"
-          class="btn btn-secondary btn-lg">Cerrar</button>
+          class="btn btn-secondary btn-lg">Close</button>
           </div>
         </div>
       </div>
